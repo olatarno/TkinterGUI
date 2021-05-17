@@ -86,21 +86,30 @@ def formatka():
     Label(bottomFrame, text=tf).grid(column=2)
     
 def ustmasz():
-    n10=forx()-100
+    n10=forx()+100
     n20='-'
     b10=float(WidthEntry.get())+biga()
     b20=b10+float(LenghtEntry.get())+biga()
     b30=b20+float(WidthEntry.get())+biga()
     b40=b30+float(LenghtEntry.get())+biga()
-    n11=0
-    n21=0
-    b11=0
-    b21=0
-    b31=0
-    b41=0
+    n11=fory()+100
+    n21=n11+fory()
+    b11=0.5*float(WidthEntry.get())+biga()+100
+    b21=b11+float(HeightEntry.get())+biga()
+    b31=b21+float(WidthEntry.get())+biga()
+    b41=b31+float(HeightEntry.get())+biga()
     d = {'N1': [n10,n11], 'N2': [n20,n21], 'B1':[b10,b11], 'B2':[b20,b21], 'B3':[b30,b31]}
     df = pd.DataFrame(data=d, index=['C1','C2'])
+    Label(bottomFrame, text='Bigownica').grid(column=2) 
     Label(bottomFrame, text=df).grid(column=2) 
+    b=forx()-30
+    wn1=float(WidthEntry.get())-biga()
+    wn2=wn1+float(LenghtEntry.get())+biga()
+    wn3=wn2+float(WidthEntry.get())+biga()
+    d1={'B':[b], 'N1':[wn1], 'N2': [wn2], 'N3':[wn3]}
+    df1 = pd.DataFrame(data=d1, index=[' '])
+    Label(bottomFrame, text='Wycinarka').grid(column=2) 
+    Label(bottomFrame, text=df1).grid(column=2)
    
 #create new window
 def open():
